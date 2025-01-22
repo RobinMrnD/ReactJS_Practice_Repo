@@ -1,13 +1,12 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React from 'react';
+import UserGreeting from './components/userGreeting';
 
 function App() {
-  return (
-    <div>
-      
-    </div>
-  );
+    return (
+        <div>
+            <UserGreeting isLoggedIn={true}  />
+        </div>
+    );
 }
 
-export default App
+export default App;
