@@ -1,33 +1,30 @@
 import React, {useState} from 'react';
 
 function MyComponent(){
-
-    const [name, setName] = useState();
-    const [age, setAge] = useState(0);
-    const [isEmployed, setIsEmployed] = useState(false);
-
-    const updateName = () => {
-        setName("Robin")
+   
+    const [count, setCount] = useState(0);
+    const increment = () => {
+        setCount(c => c + 1);
+        setCount(c => c + 2);
+        setCount(c => c + 2);
     }
 
-    const incrementAge = () =>{
-        setAge(age + 1);
+    const decrement = () => {
+        setCount(c => c - 2);
+        setCount(c => c - 3);
+        setCount(c => c - 1);
     }
 
-    const toggleEmpStat = () =>{
-        setIsEmployed(!isEmployed);
+    const reset = () => {
+        setCount(0);
     }
 
     return(
         <div>
-            <p>Name: {name}</p>
-            <button onClick={updateName}>Set Name</button>
-
-            <p>Age: {age}</p>
-            <button onClick={incrementAge}>Increment Age</button>
-
-            <p>Employed: {isEmployed ? "Yes": "No"}</p>
-            <button onClick={toggleEmpStat}>Change Employment Status</button>
+           <p>Count: {count}</p>
+           <button onClick={decrement}>Decrement</button>
+           <button onClick={reset}>Reset</button>
+           <button onClick={increment}>Increment</button>
         </div>
     )
 
