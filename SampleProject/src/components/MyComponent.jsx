@@ -2,32 +2,72 @@ import React, {useState} from 'react';
 
 function MyComponent(){
 
-    const [name, setName] = useState();
-    const [age, setAge] = useState(0);
-    const [isEmployed, setIsEmployed] = useState(false);
+    const [name, setName] = useState("Guest");
+    const [age, setAge] = useState();
+    const [desc, setDesc] = useState("");
+    const [allowance, setAllowance] = useState("Daily");
+    const [job, setJob] = useState("Student");
 
-    const updateName = () => {
-        setName("Robin")
+    function handleNameChange(event){
+        setName(event.target.value);
     }
 
-    const incrementAge = () =>{
-        setAge(age + 1);
+    function handleAgeChange(event){
+        setAge(event.target.value);
     }
 
-    const toggleEmpStat = () =>{
-        setIsEmployed(!isEmployed);
+    function handleDescChange(event){
+        setDesc(event.target.value);
     }
+
+    function handleAllowanceChange(event){
+        setAllowance(event.target.value);
+    }
+
+    function handleJobChange(event){
+        setJob(event.target.value);
+    }
+    
 
     return(
         <div>
+            <input value={name} onChange={handleNameChange}/>
             <p>Name: {name}</p>
-            <button onClick={updateName}>Set Name</button>
 
+            <input value={age} onChange={handleAgeChange} type='number'/>
             <p>Age: {age}</p>
-            <button onClick={incrementAge}>Increment Age</button>
+            
+            <textarea value={desc} onChange={handleDescChange}
+            placeholder='Enter Description'/>
+            <p>Description: {desc}</p>
 
-            <p>Employed: {isEmployed ? "Yes": "No"}</p>
-            <button onClick={toggleEmpStat}>Change Employment Status</button>
+            <select value={allowance} onChange={handleAllowanceChange}>
+                <option value="">Select an option</option>
+                <option value="Daily">Daily</option>
+                <option value="Weekly">Weekly</option>
+                <option value="Monthly">Monthly</option>
+            </select>
+            <p>Allowance Type: {allowance}</p>
+
+            <label>
+                <input type="radio" value="Student"
+                checked={job === "Student"}
+                onChange={handleJobChange}/>
+                Student
+            </label><br/>
+            <label>
+                <input type="radio" value="Intern"
+                checked={job === "Intern"}
+                onChange={handleJobChange}/>
+                Intern
+            </label><br/>
+            <label>
+                <input type="radio" value="Employee"
+                checked={job === "Employee"}
+                onChange={handleJobChange}/>
+                Employee
+            </label>
+            <p>Job: {job}</p>
         </div>
     )
 
