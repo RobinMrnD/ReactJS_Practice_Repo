@@ -1,55 +1,52 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 
 function MyComponent(){ 
 
-    const [games, setGames] = useState([]);
-    const [gameYear, setGameYear] = useState(new Date().getFullYear());
-    const [gameDeveloper, setGameDeveloper] = useState("");
-    const [gameName, setGameName] = useState("");
+    const inputRef = useRef(null);
+    const inputRef2 = useRef(null);
+    const inputRef3 = useRef(null);
 
+    useEffect(() => {
+        console.log("COMPONENT RENDERED");
+    })
 
-    function handleAddGame(){
-        const newGame = { year: gameYear,
-                          developer: gameDeveloper,
-                          name: gameName };
-        
-        setGames(g => [...g, newGame]);
-
-        setGameYear(new Date().getFullYear());
-        setGameDeveloper("");
-        setGameName("");
+    function handleClick(){
+        inputRef.current.focus();
+        inputRef.current.style.backgroundColor ="yellow";
+        inputRef.current.style.width ="500px";
+        inputRef2.current.style.backgroundColor ="";
+        inputRef3.current.style.backgroundColor ="";
     }
 
-    function handleRemoveGames(index){
-        setGames (g => g.filter((_, i) => i !== index));
+    function handleClick2(){
+        inputRef2.current.focus();
+        inputRef2.current.style.backgroundColor ="red";
+        inputRef2.current.style.height ="300px";
+        inputRef.current.style.backgroundColor ="";
+        inputRef3.current.style.backgroundColor ="";
     }
 
-    function handleYearChange(event){
-        setGameYear (event.target.value);
+    function handleClick3(){
+        inputRef3.current.focus();
+        inputRef3.current.style.backgroundColor ="green";
+        inputRef2.current.style.backgroundColor ="";
+        inputRef.current.style.backgroundColor ="";
     }
 
-    function handleDeveloperChange(event){
-        setGameDeveloper(event.target.value);
-    }
-    function handleNameChange(event){
-        setGameName(event.target.value);
-    }
     return(
         <div>
-          <h2>List of Games</h2>
-          <ul>
-            {games.map((game, index) => 
-                <li key={index} onClick={() => handleRemoveGames(index)}>
-                    {game.year} {game.developer} {game.name} 
-                </li>)}
-
-          </ul>
-            <input type="number" value={gameYear} onChange={handleYearChange}/> <br/>
-            <input type="text" value={gameDeveloper} onChange={handleDeveloperChange}
-                 placeholder ="Enter Game Developer"/><br/>
-            <input type="text" value={gameName} onChange={handleNameChange}
-                 placeholder ="Enter Game Name"/><br/>
-            <button onClick={handleAddGame}>Add Game</button>
+            <button onClick={handleClick}>
+                Click Here
+            </button>
+            <input ref = {inputRef}/>
+            <button onClick={handleClick2}>
+                Click Here
+            </button>
+            <input ref = {inputRef2}/>
+            <button onClick={handleClick3}>
+                Click Here
+            </button>
+            <input ref = {inputRef3}/>
         </div>
     )
 
