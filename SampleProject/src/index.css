@@ -25,9 +25,56 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
+}
+
+.stopwatch{
+  margin-top: 50px;
+  border: 2px solid white;
+  padding: 40px;
+  border-radius: 15px;
+}
+
+.display{
+  font-size:2rem;
+  font-family: monospace;
+  text-align: center;
+}
+
+.btns{
+  margin-top: 20px;
+  font-size:1.3rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 5px;
+}
+
+.start-btn{
+  background-color: green;
+}
+
+.start-btn:hover{
+  background-color: darkgreen;
+  transition:0.3s ease
+}
+
+.reset-btn{
+  background-color: goldenrod;
+}
+
+.reset-btn:hover{
+  background-color: darkgoldenrod;
+  transition:0.3s ease
+}
+
+.stop-btn{
+  background-color: red;
+}
+.stop-btn:hover{
+  background-color: darkred;
+  transition:0.3s ease
 }
 
 h1 {
@@ -42,17 +89,10 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
+  margin:10px;
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+
 
 @media (prefers-color-scheme: light) {
   :root {
