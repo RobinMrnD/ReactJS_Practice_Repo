@@ -25,15 +25,11 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
 
 button {
   border-radius: 8px;
@@ -49,10 +45,80 @@ button {
 button:hover {
   border-color: #646cff;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+.tdl{
+  text-align: center;
+  margin-top: 50px;
 }
+h1 {
+  font-size: 5rem;
+}
+
+.add-btn{
+  background-color: green;
+  color: white;
+  margin-left:15px;
+}
+.add-btn:hover{
+  background-color: darkgreen;
+  transition: 0.5s ease;
+}
+
+.delete-btn{
+  background-color: red;
+  color: white;
+}
+.delete-btn:hover{
+  background-color: darkred;
+  transition: 0.5s ease;
+}
+
+.move-btn{
+  background-color: gold;
+  color: white;
+}
+.move-btn:hover{
+  background-color: goldenrod;
+  transition: 0.5s ease;
+}
+
+input[type="text"]{
+  font-size: 2rem;
+  padding: 10px;
+  border:2px solid gold
+}
+
+ol{
+  padding: 0;
+}
+
+li{
+  font-size:2rem;
+  font-weight:bold;
+  padding:15px;
+  background-color:#213547;
+  border: 3px solid ghostwhite;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.text{
+  flex:1;
+}
+
+.delete-btn, .move-btn{
+  padding: 8px 12px;
+  font-size:1.5rem;
+  margin-left:10px;
+}
+
+
+
+
+
 
 @media (prefers-color-scheme: light) {
   :root {
