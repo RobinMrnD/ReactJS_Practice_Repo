@@ -1,11 +1,10 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React from 'react'
+import ComponentA from './Components/ComponentA';
 
 function App() {
   return (
-    <div>
-      
+    <div className='box'>
+        <ComponentA/>
     </div>
   );
 }
